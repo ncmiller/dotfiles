@@ -68,3 +68,4 @@ function vtree() {
    cleartool lsvtree -graphical $1 &
 }
 
+alias xw='XWin -multiwindow &> /dev/null &'
