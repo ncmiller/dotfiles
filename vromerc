@@ -4,3 +4,5 @@ map J gT
 map K gt
 
 set disablesites=mail.google.com, reader.google.com
+
+unmap <C-f>
