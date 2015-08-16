@@ -11,6 +11,8 @@ files=" \
        zlogin \
        zsh_aliases \
        colors \
+       dircolors \
+       compton.conf \
        scripts \
        gitconfig \
        i3"

@@ -3,12 +3,15 @@ ZSH_THEME="simple"
 COMPLETION_WAITING_DOTS="true"
 plugins=(git)
 
-export PATH="/home/nick/.scripts:/home/nick/.scripts:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+PATH="/home/nick/.scripts:/home/nick/.scripts:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+export PATH
 
 export VISUAL='vim'
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh_aliases
+eval `dircolors $HOME/.dircolors`
 
 alias slp='systemctl suspend'
 

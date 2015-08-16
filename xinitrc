@@ -32,5 +32,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-feh --randomize --bg-max ~/Pictures/Wallpaper/babies/*
+feh --randomize --bg-fill ~/Pictures/Wallpaper/babies/*
+compton --config ~/.compton.conf -b
+
 exec i3

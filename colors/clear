@@ -1,4 +1,4 @@
-urxvt*background:             [80]#000000
+urxvt*background:             #111111
 urxvt*foreground:             #FFFFFF
 !black
 urxvt*color0:     #101010
