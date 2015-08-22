@@ -1,71 +1,34 @@
-# Some example alias instructions
-# If these are enabled they will be used instead of any instructions
-# they may mask.  For example, alias rm='rm -i' will mask the rm
-# application.  To override the alias instruction use a \ before, ie
-# \rm will call the real rm not the alias.
+alias ls='ls -hF --color=auto'
+alias da='date "+%A, %B %d, %Y [%T]"'
+alias grep='grep --color=auto'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias df='df -h'
+alias du='du -c -h'
+alias ports='netstat --all --numeric --programs --inet --inet6'
+alias pg='ps -Af | grep -v grep | grep $1'
+alias slp='systemctl suspend'
 
-# Interactive operation...
-# alias rm='rm -i'
-# alias cp='cp -i'
-# alias mv='mv -i'
+# Pacman alias examples
+alias pacupg="sudo pacman -Syu"     # Synchronize with repositories and then upgrade packages that are out of date on the local system.
+alias pacdl="pacman -Sw"            # Download specified package(s) as .tar.xz ball
+alias pacin="sudo pacman -S"        # Install specific package(s) from the repositories
+alias pacins="sudo pacman -U"       # Install specific package not from the repositories but from a file 
+alias pacre="sudo pacman -R"        # Remove the specified package(s), retaining its configuration(s) and required dependencies
+alias pacrem="sudo pacman -Rns"     # Remove the specified package(s), its configuration(s) and unneeded dependencies
+alias pacrep="pacman -Si"           # Display information about a given package in the repositories
+alias pacreps="pacman -Ss"          # Search for package(s) in the repositories
+alias pacloc="pacman -Qi"           # Display information about a given package in the local database
+alias paclocs="pacman -Qs"          # Search for package(s) in the local database
+alias paclo="pacman -Qdt"           # List all packages which are orphaned
+alias pacc="sudo pacman -Scc"       # Clean cache - delete all the package files in the cache
+alias paclf="pacman -Ql"            # List all files installed by a given package
+alias pacown="pacman -Qo"           # Show package(s) owning the specified file(s)
+alias pacexpl="pacman -D --asexp"   # Mark one or more installed packages as explicitly installed 
+alias pacimpl="pacman -D --asdep"   # Mark one or more installed packages as non explicitly installed
 #
-# Default to human readable figures
-# alias df='df -h'
-# alias du='du -h'
-#
-# Misc :)
-# alias less='less -r'                          # raw control characters
-# alias whence='type -a'                        # where, of a sort
-alias grep='grep --color'                     # show differences in colour
-# alias egrep='egrep --color=auto'              # show differences in colour
-# alias fgrep='fgrep --color=auto'              # show differences in colour
-#
-# Some shortcuts for different directory listings
-alias ls='ls -hFX --color=auto --group-directories-first'                 # classify files in colour
-alias dir='ls --color=auto --format=vertical'
-# alias vdir='ls --color=auto --format=long'
-# alias ll='ls -l'                              # long list
-# alias la='ls -A'                              # all but . and ..
-# alias l='ls -CF'                              #
-
-#
-#GRC=`which grc`
-if [ "$TERM" != dumb ] && [ -n GRC ]
-then
-   alias colourify="grc -es --colour=auto"
-   alias configure='colourify ./configure'
-   alias diff='colourify diff'
-   alias make='colourify make'
-   alias gcc='colourify gcc'
-   alias dcc='colourify dcc'
-   alias g++='colourify g++'
-   alias ld='colourify ld'
-   alias netstat='colourify netstat'
-   alias ping='colourify ping'
-   alias traceroute='colourify /usr/sbin/traceroute'
-fi
-
-alias cd..='cd ..'
-alias cd...='cd ../..'
-alias cd....='cd ../../..'
-alias cd.....='cd ../../../..'
-alias cd......='cd ../../../../..'
-
-alias cd=cd_func
-alias cddesk='cd /cygdrive/c/Documents\ and\ Settings/nmille01/Desktop'
-
-# Trusted Switch
-alias cdts='cd /cygdrive/y/TrustSwitch/Projects'
-alias cdshare='cd S:/Programs/MAP_ENT/IR\&D_Maps/IR\&D_2011/Trusted\ Switch/Software\ Engineering/'
-
-# ClearCase
-alias cc='cleartool'
-alias pv='cleartool pwv -s'
-alias ccco='cleartool co -nc'
-alias ccci='cleartool ci'
-
-function vtree() {
-   cleartool lsvtree -graphical $1 &
-}
-
-alias xw='XWin -multiwindow &> /dev/null &'
+# # Additional pacman alias examples
+alias pacupd="sudo pacman -Sy && sudo abs"         # Update and refresh the local package and ABS databases against repositories
+alias pacinsd="sudo pacman -S --asdeps"            # Install given package(s) as dependencies
+alias pacmir="sudo pacman -Syy"                    # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist

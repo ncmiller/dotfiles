@@ -4,6 +4,10 @@ dir=~/dotfiles                    # dotfiles directory
 files=" \
        Xresources \
        xinitrc \
+       bashrc \
+       bash_profile \
+       bash_aliases \
+       bash_functions \
        vimrc \
        vim \
        oh-my-zsh \
