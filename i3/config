@@ -45,6 +45,9 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
 
+# Screen lock
+bindsym Control+$mod+l exec sh ~/.i3/i3lock.sh
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -95,9 +98,13 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# Name the workspaces
+set $tag1 "1: www"
+set $tag2 "2: sh"
+
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
+bindsym $mod+1 workspace $tag1
+bindsym $mod+2 workspace $tag2
 bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
@@ -108,8 +115,8 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+1 move container to workspace $tag1
+bindsym $mod+Shift+2 move container to workspace $tag2
 bindsym $mod+Shift+3 move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
@@ -157,5 +164,18 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+   colors {
+      background #000000
+      statusline #ffffff
+      separator  #666666
+
+      # Type               border   background  font
+      focused_workspace    #008fff  #007fff     #ffffff
+      active_workspace     #333333  #5f676a     #ffffff
+      inactive_workspace   #333333  #222222     #888888
+      urgent_workspace     #aa0000  #990000     #ffffff 
+   } 
+   position top
+   status_command i3status -c ~/.i3/i3status.conf
 }
+
