@@ -1,24 +1,26 @@
 #include "/home/nick/.colors/clear"
 
+#define TERM_FONT_NAME DroidSansMono
+
 urxvt*perl-lib:			/usr/lib/urxvt/perl
 urxvt*perl-ext-common:		default,matcher,clipboard,font-size
 urxvt*perl-matcher: 		1
 urxvt*matcher-button: 		3
 urxvt*url-launcher:		/usr/bin/chromium
-urxvt*cursorUnderline: 1
-urxvt*letterspace: -5
+urxvt*cursorUnderline:          1 
+!urxvt*letterspace:              -5 
 urxvt*cursorBlink:		false
 urxvt*scrollBar:		false
 urxvt*depth:			32 
 urxvt*internalBorder: 		5
-urxvt*dynamicColors: on
-urxvt.urgentOnBell:  true
-!urxvt*transparent: false
-!urxvt*shading: 20 
+urxvt*dynamicColors:            on 
+urxvt.urgentOnBell:             true 
+!urxvt*transparent:             false
+!urxvt*shading:                 20 
 
-*font: xft:dejavu sans mono:size=11
-*boldFont: xft:dejavu sans mono:bold:size=11
-*italicFont: xft:dejavu sans mono:italic:size=11
+urxvt*font: xft:TERM_FONT_NAME:size=10
+urxvt*boldFont: xft:TERM_FONT_NAME:bold:size=10
+urxvt*italicFont: xft:TERM_FONT_NAME:italic:size=10
 
 Xft.antialias: 1
 Xft.autohint: 0
@@ -27,3 +29,4 @@ Xft.hinting: 1
 Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
+
