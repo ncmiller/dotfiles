@@ -1,5 +1,5 @@
 term xterm-256color
-shell -${SHELL}
+#shell -${SHELL}
 defscrollback 4096
 startup_message off
 hardstatus on
