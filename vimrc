@@ -1,4 +1,4 @@
-" Preamble ---------------------------------------------------------------- {{{
+" Preamble ----------------------------------------------------- {{{
 set nocompatible
 filetype off
 
@@ -13,8 +13,7 @@ filetype indent plugin on
 
 " }}}
 
-" Basic Options ----------------------------------------------------------- {{{
-set term=xterm-256color
+" Basic Options ------------------------------------------------ {{{
 set encoding=utf-8
 set modelines=0
 set autoindent
@@ -121,7 +120,7 @@ colorscheme desert
 
 " Convenience mappings {{{
 " Toggle line numbers
-nnoremap <leader>n :setlocal number!<cr>
+nnoremap <leader>n :setlocal number!<cr>:setlocal relativenumber!<cr>
 " Toggle wrap
 nnoremap <leader>W :set wrap!<cr>
 " Insert blank line
