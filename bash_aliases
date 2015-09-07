@@ -13,6 +13,12 @@ alias slp='systemctl suspend'
 # Git
 alias gs='git status'
 
+# Quick Edit
+alias ev='vim ~/.vimrc'
+alias eba='vim ~/.bash_aliases'
+alias eb='vim ~/.bashrc'
+alias ebp='vim ~/.bash_profile'
+
 # Pacman alias examples
 alias pacupg="sudo pacman -Syu"     # Synchronize with repositories and then upgrade packages that are out of date on the local system.
 alias pacdl="pacman -Sw"            # Download specified package(s) as .tar.xz ball

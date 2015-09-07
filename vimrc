@@ -25,6 +25,7 @@ set autoindent
 set smartindent
 set showmode
 set showcmd
+set autochdir
 set hidden
 set visualbell
 set cursorline
@@ -185,6 +186,12 @@ nmap <leader>w :w!<cr>
 " Alignment
 nnoremap <leader>a :Align 
 nnoremap <leader>A :Align! =IW 
+
+" Auto Commands ----------------------------------------------------------- {{{
+
+" Remove any trailing whitespace that is in the file
+autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+
 
 " Searching --------------------------------------------------------------- {{{
 set ignorecase
