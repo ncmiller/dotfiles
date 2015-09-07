@@ -6,7 +6,11 @@ filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'Lokaltog/vim-powerline'
+Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'nanotech/jellybeans.vim'
 call vundle#end()
 
 filetype indent plugin on
@@ -17,6 +21,7 @@ filetype indent plugin on
 set encoding=utf-8
 set modelines=0
 set autoindent
+set smartindent
 set showmode
 set showcmd
 set hidden
@@ -90,7 +95,7 @@ augroup END
 set shiftwidth=3
 set softtabstop=3
 set expandtab
-set wrap
+set nowrap
 "set textwidth=80
 set formatoptions=qrn1j
 "set colorcolumn=+1
@@ -115,16 +120,16 @@ syntax on
 set background=dark
 "let g:Powerline_symbols = 'fancy'
 
-colorscheme desert
+colorscheme jellybeans
 " }}}
 
-" Convenience mappings {{{
+" ========================================
+" == Mappings ============================
+" ========================================
 " Toggle line numbers
-nnoremap <leader>n :setlocal number!<cr>:setlocal relativenumber!<cr>
+nnoremap <leader>l :setlocal number!<cr>:setlocal relativenumber!<cr>
 " Toggle wrap
 nnoremap <leader>W :set wrap!<cr>
-" Insert blank line
-nnoremap <cr> o<esc>
 " Select entire buffer
 nnoremap vaa ggvGg_
 " Easy beginning/end of line
@@ -132,11 +137,45 @@ noremap H ^
 noremap L g_
 " Easy vsplit
 noremap <leader>v <c-w>v
-" }}}
+noremap <leader>h <c-w>s
+" NERDtree
+nnoremap <leader>n :NERDTreeToggle<cr>
+
+" Disable annoying keys
+nnoremap Q <nop>
+nnoremap K <nop>
+
+command! W w
+command! Q q
+command! Qa qa
+
+" Intuitive movement over long lines
+nnoremap k gk
+nnoremap j gj
+
+" Resize windows with arrow keys
+nnoremap <up> <c-w>-
+nnoremap <down> <c-w>+
+nnoremap <left> 3<c-w>>
+nnoremap <right> 3<c-w><
 
 " Quick editing {{{
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-" }}}
+
+" Quick switch between buffers
+noremap <leader><leader> <c-^>
+
+" Window management
+noremap <leader>q :q<cr>
+
+" Tabs management
+noremap <leader>tc :tabclose<cr>
+noremap <leader>tm :tabmove<cr>
+noremap <leader>to :tabonly<cr>
+noremap <leader>tn :tabnew<cr>
+
+" Fast save
+nmap <leader>w :w!<cr>
 
 " Searching --------------------------------------------------------------- {{{
 set ignorecase
@@ -163,10 +202,9 @@ noremap <c-k> <c-w>k
 noremap <c-l> <c-w>l
 " }}}
 
-" Folding ----------------------------------------------------------------- {{{
-set foldlevelstart=0
-" Space to toggle folds
-nnoremap <Space> za
-vnoremap <Space> za
-" }}}
+" ================ Folds ============================
+
+set foldmethod=indent   "fold based on indent
+set foldnestmax=3       "deepest fold is 3 levels
+set nofoldenable        "dont fold by default
 

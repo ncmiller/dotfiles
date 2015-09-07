@@ -1,1 +1,3 @@
-tmp
+# Ignore everything except Vundle
+*
+!bundle/Vundle.vim
