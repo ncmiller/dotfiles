@@ -8,6 +8,7 @@ files=" \
        bash_profile \
        bash_aliases \
        bash_functions \
+       Xmodmap
        vimrc \
        vim \
        oh-my-zsh \

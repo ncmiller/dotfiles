@@ -28,10 +28,10 @@ client.urgent           $red       $red       $white $red
 bindsym $mod+q kill
 
 for_window [class="^.*"] border pixel 0
-gaps inner 10
+gaps inner 7
 gaps outer 5
 
-font pango:DroidSans 11
+font pango:NotoSans-Regular 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -59,6 +59,7 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
+
 
 # move focused window
 bindsym $mod+Shift+h move left
