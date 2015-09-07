@@ -61,6 +61,9 @@ au FocusLost * :wa
 " Resize splits when window resized
 au VimResized * exe "normal! \<c-w>="
 
+" Disable clipboard over X to improve startup time
+set clipboard=exclude:.*
+
 " Cursorline {{{
 " Only show cursorline in the current window and in normal mode.
 
