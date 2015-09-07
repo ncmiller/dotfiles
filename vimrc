@@ -180,7 +180,8 @@ noremap <leader>tp :tabprev<cr>
 nmap <leader>w :w!<cr>
 
 " Alignment
-vnoremap <leader>a :Align! =IW 
+nnoremap <leader>a :Align 
+nnoremap <leader>A :Align! =IW 
 
 " Searching --------------------------------------------------------------- {{{
 set ignorecase

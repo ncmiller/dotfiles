@@ -5,6 +5,7 @@ files=" \
        Xresources \
        xinitrc \
        bashrc \
+       screenrc \
        bash_profile \
        bash_aliases \
        bash_functions \

@@ -1,0 +1,21 @@
+term xterm-256color
+shell -${SHELL}
+defscrollback 4096
+startup_message off
+hardstatus on
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W}%c %{g}]'
+# hardstatus string "%{+b wk} %-w%{+b wB} %n %t %{-}%+w %41=%H @ %l %-= %= %D, %c:%s "
+defscrollback 5000
+
+setenv DISPLAY ${DISPLAY}
+
+# Enable mousewheel scrollback
+termcapinfo xterm* ti@:te@
+
+# Windows
+screen -t Local 0
+select 0
+
+# Convenience bindings
+bind ' ' windowlist -b
