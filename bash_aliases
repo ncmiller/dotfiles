@@ -10,6 +10,9 @@ alias ports='netstat --all --numeric --programs --inet --inet6'
 alias pg='ps -Af | grep -v grep | grep $1'
 alias slp='systemctl suspend'
 
+# Git
+alias gs='git status'
+
 # Pacman alias examples
 alias pacupg="sudo pacman -Syu"     # Synchronize with repositories and then upgrade packages that are out of date on the local system.
 alias pacdl="pacman -Sw"            # Download specified package(s) as .tar.xz ball
