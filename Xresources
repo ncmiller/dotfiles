@@ -1,4 +1,4 @@
-#include "/home/nick/.colors/clear"
+#include ".colors/clear"
 
 !#define TERM_FONT_NAME DroidSansMono
 !#define TERM_FONT_NAME Droid\ Sans\ Mono\ for\ Powerline

@@ -11,6 +11,7 @@ Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'vim-scripts/Align'
 call vundle#end()
 
 filetype indent plugin on
@@ -38,8 +39,7 @@ set undofile
 set undoreload=1000
 set cpoptions+=J
 set list
-set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
-set showbreak=↲
+set listchars=tab:>\ ,eol:¬,extends:+,precedes:-
 set splitbelow
 set splitright
 set lazyredraw
@@ -169,13 +169,18 @@ noremap <leader><leader> <c-^>
 noremap <leader>q :q<cr>
 
 " Tabs management
-noremap <leader>tc :tabclose<cr>
+noremap <leader>tq :tabclose<cr>
 noremap <leader>tm :tabmove<cr>
 noremap <leader>to :tabonly<cr>
-noremap <leader>tn :tabnew<cr>
+noremap <leader>tc :tabnew<cr>
+noremap <leader>tn :tabnext<cr>
+noremap <leader>tp :tabprev<cr>
 
 " Fast save
 nmap <leader>w :w!<cr>
+
+" Alignment
+vnoremap <leader>a :Align! =IW 
 
 " Searching --------------------------------------------------------------- {{{
 set ignorecase

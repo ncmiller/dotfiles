@@ -18,7 +18,6 @@ files=" \
        colors \
        dircolors \
        compton.conf \
-       scripts \
        gitconfig \
        i3"
 
