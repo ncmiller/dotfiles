@@ -1,6 +1,6 @@
 " Preamble ----------------------------------------------------- {{{
 set nocompatible
-filetype off
+filetype on
 
 " Vundle
 set runtimepath+=~/.vim/bundle/Vundle.vim
@@ -19,6 +19,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+Plugin 'vim-scripts/taglist.vim'
 call vundle#end()
 
 filetype indent plugin on
@@ -129,6 +130,7 @@ let maplocalleader="\\"
 " Colorscheme {{{
 syntax on
 set background=dark
+set t_Co=256
 "let g:Powerline_symbols = 'fancy'
 
 colorscheme jellybeans
@@ -152,6 +154,12 @@ noremap <leader>h <c-w>s
 " NERDtree
 nnoremap <leader>n :NERDTreeToggle<cr>
 
+"Taglist
+nnoremap <silent> <F8> :TlistToggle<cr>
+
+" Reopen last closed buffer in vsplit
+nnoremap <leader>tu :vs<bar>:b#<cr>
+
 " Disable annoying keys
 nnoremap Q <nop>
 nnoremap K <nop>
@@ -165,8 +173,8 @@ nnoremap k gk
 nnoremap j gj
 
 " Resize windows with arrow keys
-nnoremap <up> <c-w>-
-nnoremap <down> <c-w>+
+nnoremap <up> <c-w>+
+nnoremap <down> <c-w>-
 nnoremap <left> 3<c-w>>
 nnoremap <right> 3<c-w><
 
@@ -180,12 +188,8 @@ noremap <leader><leader> <c-^>
 noremap <leader>q :q<cr>
 
 " Tabs management
-noremap <leader>tq :tabclose<cr>
-noremap <leader>tm :tabmove<cr>
-noremap <leader>to :tabonly<cr>
-noremap <leader>tc :tabnew<cr>
-noremap <leader>tn :tabnext<cr>
-noremap <leader>tp :tabprev<cr>
+noremap <c-w> :tabclose<cr>
+noremap <c-t> :tabnew<cr>
 
 " Fast save
 nmap <leader>w :w!<cr>
@@ -227,3 +231,5 @@ set foldmethod=indent   "fold based on indent
 set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
+" ================ Plugin settings ===================
+let Tlist_Show_One_File = 1
