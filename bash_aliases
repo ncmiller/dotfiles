@@ -13,6 +13,9 @@ alias slp='systemctl suspend'
 # Git
 alias gs='git status'
 
+# Quick cd
+alias cdt='cd /mnt/tower'
+
 # Quick Edit
 alias ev='vim ~/.vimrc'
 alias eba='vim ~/.bash_aliases'

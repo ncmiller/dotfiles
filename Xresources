@@ -1,9 +1,9 @@
-#include ".colors/clear"
+#include "colors/clear"
 
 !#define TERM_FONT_NAME DroidSansMono
 !#define TERM_FONT_NAME Droid\ Sans\ Mono\ for\ Powerline
 #define TERM_FONT_NAME Inconsolata\ for\ Powerline
-#define TERM_FONT_SIZE 10
+#define TERM_FONT_SIZE 12
 
 
 urxvt*perl-lib:			/usr/lib/urxvt/perl

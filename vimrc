@@ -8,10 +8,10 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
+Plugin 'bling/vim-bufferline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'nanotech/jellybeans.vim'
-Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
@@ -33,7 +33,7 @@ set autoindent
 set smartindent
 set showmode
 set showcmd
-set autochdir
+"set autochdir
 set hidden
 set visualbell
 set cursorline
@@ -48,7 +48,7 @@ set undofile
 set undoreload=1000
 set cpoptions+=J
 set list
-set listchars=tab:>\ ,eol:¬,extends:+,precedes:-
+set listchars=tab:>\ ,eol:¬,extends:+,precedes:-,trail:·
 set splitbelow
 set splitright
 set lazyredraw
@@ -131,7 +131,6 @@ let maplocalleader="\\"
 syntax on
 set background=dark
 set t_Co=256
-"let g:Powerline_symbols = 'fancy'
 
 colorscheme jellybeans
 " }}}
@@ -181,8 +180,10 @@ nnoremap <right> 3<c-w><
 " Quick editing {{{
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
-" Quick switch between buffers
-noremap <leader><leader> <c-^>
+" Buffer shortcuts
+nnoremap <c-b> :bprevious<cr>
+nnoremap <c-n> :bnext<cr>
+nnoremap bb :bd<cr>
 
 " Window management
 noremap <leader>q :q<cr>
