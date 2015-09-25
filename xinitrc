@@ -35,5 +35,6 @@ fi
 
 feh --randomize --bg-fill ~/Pictures/Wallpaper/babies/*
 compton --config ~/.compton.conf -b
+numlockx on
 
 exec i3

@@ -45,6 +45,11 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
 
+# Volume control
+bindsym $mod+m exec amixer -q sset Master toggle
+bindsym $mod+comma exec amixer -q sset Master 5%- unmute
+bindsym $mod+period exec amixer -q sset Master 5%+ unmute
+
 # Screen lock
 #bindsym Control+$mod+l exec sh ~/.i3/i3lock.sh
 
@@ -183,9 +188,10 @@ bar {
       focused_workspace    #008fff  #007fff     #ffffff
       active_workspace     #333333  #5f676a     #ffffff
       inactive_workspace   #333333  #222222     #888888
-      urgent_workspace     #aa0000  #990000     #ffffff 
-   } 
+      urgent_workspace     #aa0000  #990000     #ffffff
+   }
    position top
    status_command i3status -c ~/.i3/i3status.conf
 }
 
+exec /usr/bin/unclutter -idle 1 &

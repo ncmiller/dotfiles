@@ -11,6 +11,7 @@ Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'rking/ag.vim'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-surround'
@@ -183,7 +184,7 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " Buffer shortcuts
 nnoremap <c-b> :bprevious<cr>
 nnoremap <c-n> :bnext<cr>
-nnoremap bb :bd<cr>
+nnoremap <leader>b :bd<cr>
 
 " Window management
 noremap <leader>q :q<cr>
