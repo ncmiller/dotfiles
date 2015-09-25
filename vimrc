@@ -21,6 +21,7 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'vim-scripts/taglist.vim'
+Plugin 'rking/ag.vim'
 call vundle#end()
 
 filetype indent plugin on

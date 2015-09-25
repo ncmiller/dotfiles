@@ -1,9 +1,8 @@
-function TrimTrailingWhitespace()
-  if !&binary && &filetype != 'diff'
-    normal mz
-    normal Hmy
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
     %s/\s\+$//e
-    normal 'yz<CR>
-    normal `z
-  endif
-endfunction
+    call cursor(l, c)
+endfun
+
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
