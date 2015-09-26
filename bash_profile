@@ -15,3 +15,5 @@ export VISUAL='vim'
 eval `dircolors $HOME/.dircolors`
 
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+
+case $- in *i*) . ~/.bashrc;; esac
