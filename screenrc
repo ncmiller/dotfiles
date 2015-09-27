@@ -14,7 +14,8 @@ setenv DISPLAY ${DISPLAY}
 termcapinfo xterm* ti@:te@
 
 # Windows
-screen -t Local 0
+screen -t vim 0 vim
+screen -t sh  1
 select 0
 
 # Convenience bindings
