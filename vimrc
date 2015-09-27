@@ -16,6 +16,7 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-obsession'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
@@ -195,4 +196,5 @@ nnoremap N Nzzzv
 " }}}
 " Plugin settings {{{
 let Tlist_Show_One_File = 1
+let g:bufferline_echo = 0
 " }}}
