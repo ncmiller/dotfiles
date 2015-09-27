@@ -1,5 +1,8 @@
 set $mod Mod4
 
+font pango:NotoSans-Regular 9
+
+# Colors {{{
 set $black       #2c2836
 set $darkblack   #73707e
 set $red         #bb7473
@@ -17,7 +20,8 @@ set $darkcyan    #9ac1d9
 set $white       #f1edfb
 set $darkwhite   #f1edfb
 set $background  #283D48
-
+# }}}
+# Window Settings {{{
 force_display_urgency_hint 0 ms
 focus_on_window_activation urgent
 
@@ -25,17 +29,15 @@ client.focused          $cyan      $cyan      $white $cyan
 client.unfocused        $black     $black     $white $black
 client.focused_inactive $black     $black     $white $black
 client.urgent           $red       $red       $white $red
-bindsym $mod+q kill
-
-for_window [class="^.*"] border pixel 0
-gaps inner 7
-gaps outer 5
-
-font pango:NotoSans-Regular 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+for_window [class="^.*"] border pixel 0
+gaps inner 0
+gaps outer 0
+#}}}
+# Bindings {{{
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
@@ -58,6 +60,11 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+
+bindsym $mod+q kill
+
+# Screenshots
+bindsym --release Shift+Print exec --no-startup-id scrot -e 'mv $f ~/Pictures/Screenshots'
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -103,12 +110,46 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+bindsym $mod+r mode "resize"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+# }}}
+# Workspaces {{{
 # Name the workspaces
-set $tag1 "I"
-set $tag2 "II"
-set $tag3 "III"
-set $tag4 "IV"
-set $tag5 "V"
+set $tag1 "I:web"
+set $tag2 "II:term"
+set $tag3 "III:games"
+set $tag4 "IV:chat"
+set $tag5 "V:music"
+set $tag6 "VI:plex"
 set $tag6 "VI"
 set $tag7 "VII"
 set $tag8 "VIII"
@@ -139,43 +180,22 @@ bindsym $mod+Shift+8 move container to workspace $tag8
 bindsym $mod+Shift+9 move container to workspace $tag9
 bindsym $mod+Shift+0 move container to workspace $tag10
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
+# Screen Assignments
+workspace $tag1 output DVI-I-1
+workspace $tag2 output DP-1
+workspace $tag3 output DP-1
 
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+# Assignments
+assign [class="Chromium"] $tag1
+assign [class="Chromium" title="^Plex"] $tag6
+assign [class="Steam"] $tag3
+assign [title="irssi"] $tag4
+assign [title="URxvt" instance="^ncmpcpp$"] $tag5
 
-# exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Delete exec "python2.7 ~/.i3/i3exit"
-bindsym $mod+Shift+e exec "python2.7 ~/.i3/i3exit"
-
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-bindsym $mod+r mode "resize"
-
+# Default floating applications
+for_window [class="Steam"] floating enable
+# }}}
+# Status Bar {{{
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -193,5 +213,12 @@ bar {
    position top
    status_command i3status -c ~/.i3/i3status.conf
 }
-
-exec /usr/bin/unclutter -idle 1 &
+# }}}
+# Startup programs {{{
+exec chromium
+exec chromium --new-window https://app.plex.tv/web/app
+exec --no-startup-id /usr/bin/unclutter -idle 1 &
+exec --no-startup-id urxvt -e irssi
+exec --no-startup-id urxvt -e tmux
+exec --no-startup-id urxvt -name ncmpcpp -e ncmpcpp
+# }}}
