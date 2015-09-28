@@ -1,0 +1,32 @@
+sw_volume: 94
+audio_device_state:1:Visualizer feed
+audio_device_state:1:pulse audio
+state: play
+current: 4
+time: 120.209000
+random: 0
+repeat: 0
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:Hiromi/Voice/01 - Voice.flac
+1:Hiromi/Voice/02 - Flashback.flac
+2:Hiromi/Voice/03 - Now Or Never.flac
+3:Hiromi/Voice/04 - Temptation.flac
+4:Hiromi/Voice/05 - Labyrinth.flac
+5:Hiromi/Voice/06 - Desire.flac
+6:Hiromi/Voice/07 - Haze.flac
+7:Hiromi/Voice/08 - Delusion.flac
+8:Hiromi/Voice/09 - Beethoven's Piano Sonata No 8 Pathetique.flac
+9:Hiromi/Spiral/01. Hiromi - Spiral.flac
+10:Hiromi/Spiral/02. Hiromi - Open Door - Tuning - Prologue.flac
+11:Hiromi/Spiral/03. Hiromi - Deja vu.flac
+12:Hiromi/Spiral/04. Hiromi - Reverse.flac
+13:Hiromi/Spiral/05. Hiromi - Edge.flac
+14:Hiromi/Spiral/06. Hiromi - Old Castle, by the river, in the middle of the forest.flac
+15:Hiromi/Spiral/07. Hiromi - Love and Laughter.flac
+16:Hiromi/Spiral/08. Hiromi - Return of Kung-Fu World Champion.flac
+playlist_end

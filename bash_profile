@@ -16,4 +16,6 @@ eval `dircolors $HOME/.dircolors`
 
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
 
+[ ! -s ~/.config/mpd/pid ] && mpd ~/.config/mpd/mpd.conf
+
 case $- in *i*) . ~/.bashrc;; esac
