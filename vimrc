@@ -8,20 +8,20 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
-Plugin 'bling/vim-bufferline'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'rking/Ag.vim'
+"Plugin 'bling/vim-bufferline'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdcommenter'
+"Plugin 'rking/Ag.vim'
 Plugin 'nanotech/jellybeans.vim'
-Plugin 'godlygeek/tabular'
+"Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-obsession'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'vim-scripts/taglist.vim'
+"Plugin 'MarcWeber/vim-addon-mw-utils'
+"Plugin 'tomtom/tlib_vim'
+"Plugin 'garbas/vim-snipmate'
+"Plugin 'honza/vim-snippets'
+"Plugin 'vim-scripts/taglist.vim'
 call vundle#end()
 
 filetype on
@@ -48,7 +48,7 @@ set undofile
 set undoreload=1000
 set cpoptions+=J
 set list
-set listchars=tab:>\ ,eol:$,extends:+,precedes:-,trail:~
+set listchars=tab:>\ ,eol:¬,extends:+,precedes:-,trail:·
 set splitbelow
 set splitright
 set matchtime=3
@@ -111,17 +111,17 @@ let mapleader=","
 let maplocalleader="\\"
 " Navigation / Workflow {{{
 " Easy beginning/end of line
-noremap H ^
-noremap L g_
+"noremap H ^
+"noremap L g_
 
 " Easy vsplit
-noremap <leader>v <c-w>v
-noremap <leader>h <c-w>s
+"noremap <leader>v <c-w>v
+"noremap <leader>h <c-w>s
 
 " Buffer shortcuts
-nnoremap <c-b> :bprevious<cr>
-nnoremap <c-n> :bnext<cr>
-nnoremap <leader>b :bd<cr>
+"nnoremap <c-b> :bprevious<cr>
+"nnoremap <c-n> :bnext<cr>
+"nnoremap <leader>b :bd<cr>
 
 " Easy window navigation
 noremap <c-h> <c-w>h
@@ -130,14 +130,14 @@ noremap <c-k> <c-w>k
 noremap <c-l> <c-w>l
 
 " Window management
-noremap <leader>q :q<cr>
+"noremap <leader>q :q<cr>
 
 " Tabs management
-noremap <c-w> :tabclose<cr>
-noremap <c-t> :tabnew<cr>
+"noremap <c-w> :tabclose<cr>
+"noremap <c-t> :tabnew<cr>
 
 " Reopen last closed buffer in vsplit
-nnoremap <leader>tu :vs<bar>:b#<cr>
+"nnoremap <leader>tu :vs<bar>:b#<cr>
 
 " Resize windows with arrow keys
 nnoremap <up> <c-w>+
@@ -147,43 +147,43 @@ nnoremap <right> 3<c-w><
 " }}}
 " Toggle Mappings {{{
 " Toggle line numbers
-nnoremap <leader>l :setlocal number!<cr>:setlocal relativenumber!<cr>
+"nnoremap <leader>l :setlocal number!<cr>:setlocal relativenumber!<cr>
 
 " Toggle wrap
-nnoremap <leader>W :set wrap!<cr>
+"nnoremap <leader>W :set wrap!<cr>
 
 " Clear search highlights
-noremap <leader><space> :noh<cr>:call clearmatches()<cr>
+"noremap <leader><space> :noh<cr>:call clearmatches()<cr>
 " }}}
 " Plugins Mappings {{{
 " NERDtree
-nnoremap <leader>n :NERDTreeToggle<cr>
+"nnoremap <leader>n :NERDTreeToggle<cr>
 
 "Taglist
-nnoremap <silent> <F8> :TlistToggle<cr>
+"nnoremap <silent> <F8> :TlistToggle<cr>
 
 " Alignment
-nnoremap <leader>a :'a,.GTabularize /
-vnoremap <leader>a :GTabularize /
+"nnoremap <leader>a :'a,.GTabularize /
+"vnoremap <leader>a :GTabularize /
 " }}}
 " Quick editing {{{
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
 " Fast save
-nmap <leader>w :w!<cr>
+"nmap <leader>w :w!<cr>
 
 " Select entire buffer
-nnoremap vaa ggvGg_
+"nnoremap vaa ggvGg_
 " }}}
 " Misc Mappings"{{{
-" Disable annoying keys
+" Disable Ex mode shortcut
 nnoremap Q <nop>
-nnoremap K <nop>
+"nnoremap K <nop>
 
 " Common typos remap to what they should be
-command! W w
-command! Q q
-command! Qa qa
+"command! W w
+"command! Q q
+"command! Qa qa
 
 " Intuitive movement over long lines
 nnoremap k gk
@@ -195,6 +195,6 @@ nnoremap N Nzzzv
 " }}}
 " }}}
 " Plugin settings {{{
-let Tlist_Show_One_File = 1
-let g:bufferline_echo = 0
+"let Tlist_Show_One_File = 1
+"let g:bufferline_echo = 0
 " }}}
