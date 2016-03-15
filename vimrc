@@ -18,11 +18,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-obsession'
 Plugin 'junegunn/vim-easy-align'
-"Plugin 'MarcWeber/vim-addon-mw-utils'
-"Plugin 'tomtom/tlib_vim'
-"Plugin 'garbas/vim-snipmate'
-"Plugin 'honza/vim-snippets'
-"Plugin 'vim-scripts/taglist.vim'
 call vundle#end()
 
 filetype on
@@ -159,7 +154,7 @@ nnoremap <leader>L :set number!<cr>:set list!<cr>
 " }}}
 " Plugins Mappings {{{
 " NERDtree
-nnoremap <leader>n :NERDTreeToggle<cr>
+"nnoremap <leader>n :NERDTreeToggle<cr>
 
 "Taglist
 "nnoremap <silent> <F8> :TlistToggle<cr>
