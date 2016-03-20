@@ -7,7 +7,8 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'bling/vim-bufferline'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'scrooloose/nerdcommenter'
@@ -17,6 +18,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-obsession'
+Plugin 'tpope/vim-fugitive'
 Plugin 'junegunn/vim-easy-align'
 call vundle#end()
 
@@ -207,5 +209,8 @@ let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 if executable('ag')
    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
+
+" Airline theme
+let g:airline_theme='luna'
 " }}}
 

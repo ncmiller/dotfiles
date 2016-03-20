@@ -12,10 +12,10 @@ export EDITOR=vim
 export BROWSER=firefox
 export VISUAL='vim'
 
-eval `dircolors $HOME/.dircolors`
+#eval `dircolors $HOME/.dircolors`
 
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+#[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
 
-[ ! -s ~/.config/mpd/pid ] && mpd ~/.config/mpd/mpd.conf
+#[ ! -s ~/.config/mpd/pid ] && mpd ~/.config/mpd/mpd.conf
 
 case $- in *i*) . ~/.bashrc;; esac
