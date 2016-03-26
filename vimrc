@@ -7,13 +7,14 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'bling/vim-bufferline'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'scrooloose/nerdcommenter'
-"Plugin 'rking/Ag.vim'
+Plugin 'rking/Ag.vim'
 "Plugin 'nanotech/jellybeans.vim'
+"Plugin 'chriskempson/base16-vim'
 "Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
@@ -42,8 +43,8 @@ set backspace=indent,eol,start
 set number
 set laststatus=2
 set history=1000
-" set undofile
-" set undoreload=1000
+set undofile
+set undoreload=1000
 set cpoptions+=J
 set list
 set listchars=tab:>\ ,extends:+,precedes:-
@@ -83,9 +84,15 @@ set formatoptions=qrn1
 "set colorcolumn=+1
 set backup
 set noswapfile
-" set undodir=~/.vim/tmp/undo//
+set undodir=~/.vim/tmp/undo//
 set backupdir=~/.vim/tmp/backup//
 set directory=~/.vim/tmp/swap//
+
+" Status Line
+set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
+
+" }}}
+" Helper Functions {{{
 " }}}
 " AutoCmd {{{
 
@@ -102,7 +109,9 @@ augroup END
 syntax on
 set background=dark
 set t_Co=256
+"colorscheme jellybeans
 colorscheme desert
+
 " }}}
 " Mappings {{{
 let mapleader=","
@@ -152,11 +161,15 @@ nnoremap <right> 3<c-w><
 nnoremap <leader>L :set number!<cr>:set list!<cr>
 
 " Clear search highlights
-"noremap <leader><space> :noh<cr>:call clearmatches()<cr>
+noremap <leader><space> :noh<cr>:call clearmatches()<cr>
+
+" Inverse colors for highlights
+hi Visual term=reverse cterm=reverse guibg=Grey
+
 " }}}
 " Plugins Mappings {{{
 " NERDtree
-"nnoremap <leader>n :NERDTreeToggle<cr>
+nnoremap <leader>n :NERDTreeToggle<cr>
 
 "Taglist
 "nnoremap <silent> <F8> :TlistToggle<cr>
@@ -211,6 +224,7 @@ if executable('ag')
 endif
 
 " Airline theme
-let g:airline_theme='luna'
+"let g:airline_theme='jellybeans'
+
 " }}}
 
