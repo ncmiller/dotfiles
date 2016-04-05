@@ -1,4 +1,5 @@
 set nocompatible
+filetype off
 
 " Plugins  ----------------------------------------------------- {{{
 
@@ -7,20 +8,26 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
-"Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline'
 "Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'bling/vim-bufferline'
 Plugin 'scrooloose/nerdtree'
-"Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'rking/Ag.vim'
-"Plugin 'nanotech/jellybeans.vim'
-"Plugin 'chriskempson/base16-vim'
-"Plugin 'godlygeek/tabular'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'chriskempson/base16-vim'
+Plugin 'WeiChungWu/vim-SystemVerilog.git'
+Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-fugitive'
-Plugin 'junegunn/vim-easy-align'
+Plugin 'tpope/vim-commentary.git'
+Plugin 'tpope/vim-dispatch'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 call vundle#end()
 
 filetype on
@@ -43,8 +50,8 @@ set backspace=indent,eol,start
 set number
 set laststatus=2
 set history=1000
-set undofile
-set undoreload=1000
+"set undofile
+"set undoreload=1000
 set cpoptions+=J
 set list
 set listchars=tab:>\ ,extends:+,precedes:-
@@ -64,7 +71,7 @@ set backupskip=/tmp/*,/private/tmp/* " Make vim able to edit crontab
 set clipboard=exclude:.* " Disable clipboard over X to improve startup time
 set wildmenu
 set wildmode=list:longest
-set wildignore+=.hg,.git,.svn                    " Version control
+"set wildignore+=.hg,.git,.svn                    " Version control
 set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
 set foldmethod=marker
@@ -84,7 +91,7 @@ set formatoptions=qrn1
 "set colorcolumn=+1
 set backup
 set noswapfile
-set undodir=~/.vim/tmp/undo//
+"set undodir=~/.vim/tmp/undo//
 set backupdir=~/.vim/tmp/backup//
 set directory=~/.vim/tmp/swap//
 
@@ -109,8 +116,8 @@ augroup END
 syntax on
 set background=dark
 set t_Co=256
-"colorscheme jellybeans
-colorscheme desert
+colorscheme jellybeans
+"colorscheme desert
 
 " }}}
 " Mappings {{{
@@ -181,10 +188,10 @@ vnoremap <leader>a :GTabularize /
 nnoremap <c-b> :CtrlPBuffer<cr>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
+" xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
+" nmap ga <Plug>(EasyAlign)
 " }}}
 " Quick editing {{{
 "nnoremap <leader>ev :vsplit $MYVIMRC<cr>
