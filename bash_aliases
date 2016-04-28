@@ -10,6 +10,9 @@ alias ports='netstat --all --numeric --programs --inet --inet6'
 alias pg='ps -Af | grep -v grep | grep $1'
 alias slp='systemctl suspend'
 
+# Proper colors for vim when invoking tmux
+alias tmux="TERM=screen-256color-bce tmux"
+
 # Git
 alias gs='git status'
 
