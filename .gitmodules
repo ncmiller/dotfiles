@@ -4,3 +4,6 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh
+[submodule "scripts/speedtest-cli"]
+	path = scripts/speedtest-cli
+	url = https://github.com/sivel/speedtest-cli.git
