@@ -82,9 +82,9 @@ set smartcase
 set incsearch
 set showmatch
 set hlsearch
-set shiftwidth=3
-set softtabstop=3
-set expandtab
+set shiftwidth=8
+set softtabstop=8
+set noexpandtab
 set nowrap
 set textwidth=80
 set formatoptions=qrn1
@@ -94,6 +94,8 @@ set noswapfile
 set undodir=~/.vim/tmp/undo//
 set backupdir=~/.vim/tmp/backup//
 set directory=~/.vim/tmp/swap//
+set tags=tags;/ " look for ctags up the dir tree
+set tags+=~/src/linux/tags
 
 " Status Line
 set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
@@ -117,6 +119,7 @@ syntax on
 set background=dark
 set t_Co=256
 colorscheme jellybeans
+"colorscheme slate
 "colorscheme desert
 
 " }}}
@@ -219,6 +222,10 @@ nnoremap j gj
 " Next match always in middle of window
 nnoremap n nzzzv
 nnoremap N Nzzzv
+
+" Toggle paste mode
+nnoremap <leader>P :set paste!<cr>
+
 " }}}
 " }}}
 " Plugin settings {{{

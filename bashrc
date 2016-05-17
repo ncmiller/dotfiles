@@ -1,7 +1,6 @@
 # better pattern matching
 shopt -s extglob
 
-PATH="/home/nick/.scripts:$PATH"
 PATH="/usr/local/sbin:$PATH"
 PATH="/usr/local/bin:$PATH"
 PATH="/usr/bin:$PATH"
