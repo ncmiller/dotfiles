@@ -28,6 +28,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+Plugin 'brookhong/cscope.vim'
 call vundle#end()
 
 filetype on
@@ -50,8 +51,8 @@ set backspace=indent,eol,start
 set number
 set laststatus=2
 set history=1000
-"set undofile
-"set undoreload=1000
+set undofile
+set undoreload=1000
 set cpoptions+=J
 set list
 set listchars=tab:>\ ,extends:+,precedes:-
@@ -91,7 +92,7 @@ set formatoptions=qrn1
 "set colorcolumn=+1
 set backup
 set noswapfile
-"set undodir=~/.vim/tmp/undo//
+set undodir=~/.vim/tmp/undo//
 set backupdir=~/.vim/tmp/backup//
 set directory=~/.vim/tmp/swap//
 
@@ -116,8 +117,8 @@ augroup END
 syntax on
 set background=dark
 set t_Co=256
-colorscheme jellybeans
-"colorscheme desert
+"colorscheme jellybeans
+colorscheme desert
 
 " }}}
 " Mappings {{{
@@ -141,10 +142,10 @@ nnoremap Q <nop>
 "nnoremap <leader>bd :bd<cr>
 
 " Easy window navigation
-"noremap <c-h> <c-w>h
-"noremap <c-j> <c-w>j
-"noremap <c-k> <c-w>k
-"noremap <c-l> <c-w>l
+noremap <c-h> <c-w>h
+noremap <c-j> <c-w>j
+noremap <c-k> <c-w>k
+noremap <c-l> <c-w>l
 
 " Window management
 "noremap <leader>q :q<cr>
@@ -161,7 +162,10 @@ nnoremap <right> 3<c-w><
 " }}}
 " Toggle Mappings {{{
 " Toggle line numbers
-"nnoremap <leader>W :set wrap!<cr>
+nnoremap <leader>W :set wrap!<cr>
+
+"Toggle paste mode
+nnoremap <leader>p :set paste!<cr>
 
 " Toggle line numbers and listchars
 " nnoremap <leader>L :set relativenumber!<cr>:set number!<cr>:set list!<cr>
@@ -194,7 +198,8 @@ nnoremap <c-b> :CtrlPBuffer<cr>
 " nmap ga <Plug>(EasyAlign)
 " }}}
 " Quick editing {{{
-"nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>rv :source $MYVIMRC<cr>
 
 " Fast save
 "nmap <leader>w :w!<cr>
@@ -232,6 +237,10 @@ endif
 
 " Airline theme
 "let g:airline_theme='jellybeans'
+
+" Cscope
+nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
+nnoremap <leader>l :call ToggleLocationList()<CR>
 
 " }}}
 
