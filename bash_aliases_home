@@ -31,6 +31,12 @@ alias ebp='vim ~/.bash_profile'
 # Python
 alias pep8r='find . -name "*.py" | xargs pep8'
 
+alias roku='roku 192.168.1.147'
+alias subl='/opt/sublime_text/sublime_text'
+
+# vim aliases
+alias vimh='vim -S ~/.vim/sessions/home.vim'
+
 # Pacman alias examples
 alias pacupg="sudo pacman -Syu"     # Synchronize with repositories and then upgrade packages that are out of date on the local system.
 alias pacdl="pacman -Sw"            # Download specified package(s) as .tar.xz ball

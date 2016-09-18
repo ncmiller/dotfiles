@@ -1,16 +1,14 @@
 set nocompatible
 filetype off
 
-" Plugins  ----------------------------------------------------- {{{
 
 " Vundle
+" ---------
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'bling/vim-bufferline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'rking/Ag.vim'
@@ -34,8 +32,9 @@ call vundle#end()
 filetype on
 filetype indent plugin on
 
-" }}}
-" Basic Options ------------------------------------------------ {{{
+
+" Basic Options
+" --------------
 set encoding=utf-8
 set modelines=0
 set autoindent
@@ -89,20 +88,17 @@ set expandtab
 set nowrap
 set textwidth=80
 set formatoptions=qrn1
-"set colorcolumn=+1
+set colorcolumn=+1
 set backup
 set noswapfile
 set undodir=~/.vim/tmp/undo//
 set backupdir=~/.vim/tmp/backup//
 set directory=~/.vim/tmp/swap//
-
-" Status Line
 set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 
-" }}}
-" Helper Functions {{{
-" }}}
-" AutoCmd {{{
+
+" AutoCmd
+" --------------
 
 " Make sure Vim returns to the same line when you reopen file
 augroup line_return
@@ -112,135 +108,61 @@ au BufReadPost *
       \    execute 'normal! g`"zvzz' |
       \ endif
 augroup END
-" }}}
-" Colors {{{
+
+
+" Colors
+" -----------
 syntax on
 set background=dark
 set t_Co=256
-"colorscheme jellybeans
-colorscheme desert
+colorscheme jellybeans
+" colorscheme desert
+hi ColorColumn ctermbg=237
+hi Visual term=reverse cterm=reverse guibg=Grey
 
-" }}}
-" Mappings {{{
+
+" Mappings
+" ----------
 let mapleader=","
 let maplocalleader="\\"
-" Navigation / Workflow {{{
-" Easy beginning/end of line
-"noremap H ^
-"noremap L g_
-
-" Disable annoying Ex-mode mapping
 nnoremap Q <nop>
-
-" Easy vsplit
-"noremap <leader>v <c-w>v
-"noremap <leader>h <c-w>s
-
-" Buffer shortcuts
+noremap <leader>v <c-w>v
+noremap <leader>h <c-w>s
 "nnoremap <c-b> :bprevious<cr>
 "nnoremap <c-n> :bnext<cr>
-"nnoremap <leader>bd :bd<cr>
-
-" Easy window navigation
+nnoremap <leader>bd :bd<cr>
 noremap <c-h> <c-w>h
 noremap <c-j> <c-w>j
 noremap <c-k> <c-w>k
 noremap <c-l> <c-w>l
-
-" Window management
-"noremap <leader>q :q<cr>
-
-" Tabs management
-"noremap <c-w> :tabclose<cr>
-"noremap <c-t> :tabnew<cr>
-
-" Resize windows with arrow keys
 nnoremap <up> <c-w>+
 nnoremap <down> <c-w>-
 nnoremap <left> 3<c-w>>
 nnoremap <right> 3<c-w><
-" }}}
-" Toggle Mappings {{{
-" Toggle line numbers
 nnoremap <leader>W :set wrap!<cr>
-
-"Toggle paste mode
 nnoremap <leader>p :set paste!<cr>
-
-" Toggle line numbers and listchars
-" nnoremap <leader>L :set relativenumber!<cr>:set number!<cr>:set list!<cr>
 nnoremap <leader>L :set number!<cr>:set list!<cr>
-
-" Clear search highlights
 noremap <leader><space> :noh<cr>:call clearmatches()<cr>
-
-" Inverse colors for highlights
-hi Visual term=reverse cterm=reverse guibg=Grey
-
-" }}}
-" Plugins Mappings {{{
-" NERDtree
 nnoremap <leader>n :NERDTreeToggle<cr>
-
-"Taglist
-"nnoremap <silent> <F8> :TlistToggle<cr>
-
-" Alignment
 nnoremap <leader>a :'a,.GTabularize /
 vnoremap <leader>a :GTabularize /
-
 nnoremap <c-b> :CtrlPBuffer<cr>
-
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-" xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-" nmap ga <Plug>(EasyAlign)
-" }}}
-" Quick editing {{{
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>rv :source $MYVIMRC<cr>
-
-" Fast save
-"nmap <leader>w :w!<cr>
-
-" Select entire buffer
-"nnoremap vaa ggvGg_
-" }}}
-" Misc Mappings"{{{
-" Disable annoying keys
-"nnoremap Q <nop>
-"nnoremap K <nop>
-
-" Common typos remap to what they should be
-"command! W w
-"command! Q q
-"command! Qa qa
-
-" Intuitive movement over long lines
+nmap <leader>w :w<cr>
+nmap <leader>q :q<cr>
 nnoremap k gk
 nnoremap j gj
-
 " Next match always in middle of window
 nnoremap n nzzzv
 nnoremap N Nzzzv
-" }}}
-" }}}
-" Plugin settings {{{
-"let Tlist_Show_One_File = 1
-"let g:bufferline_echo = 0
+
+
+" Plugins
+" -----------
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:50'
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 if executable('ag')
    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
-
-" Airline theme
-"let g:airline_theme='jellybeans'
-
-" Cscope
-nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
-nnoremap <leader>l :call ToggleLocationList()<CR>
-
-" }}}
 
