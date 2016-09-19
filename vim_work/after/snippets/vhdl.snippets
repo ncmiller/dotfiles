@@ -1,0 +1,116 @@
+snippet head Harris VHDL header
+	-------------------------------------------------------------------------------
+	-- Harris Proprietary Information
+	-- Copyright, 2015, Harris Corporation, all rights reserved
+	-------------------------------------------------------------------------------
+	-- EXPORT CONTROLLED - ITAR
+	-------------------------------------------------------------------------------
+	-- THESE ITEM(S) / TECHNICAL DATA ARE CONTROLLED BY THE DEPARTMENT OF STATE,
+	-- INTERNATIONAL TRAFFIC IN ARMS REGULATIONS (ITAR), 22 CFR PARTS 120-130,
+	-- AND CANNOT BE EXPORTED FROM THE UNITED STATES OR SHARED WITH A FOREIGN
+	-- PERSON WITHOUT PRIOR APPROVAL FROM THE U.S. DEPARTMENT OF STATE .
+	-------------------------------------------------------------------------------
+	-- Subversion Information (DO NOT EDIT)
+	-------------------------------------------------------------------------------
+	-- $Author: $:
+	-- $Date: $:
+	-- $Rev: $:
+	-- $URL: $:
+	-------------------------------------------------------------------------------
+	library ieee;
+	use ieee.std_logic_1164.all;
+
+snippet ent entity/architecture
+	--------------------------------------------------------------------------------
+	-- ${0:Description}
+	--------------------------------------------------------------------------------
+	entity ${1:`vim_snippets#Filename('$1', 'name')`} is
+	   generic
+	   (
+
+	   );
+	   port
+	   (
+
+	   );
+	end entity $1;
+
+	architecture ${2:rtl} of $1 is
+
+	   ----------------------------------------------------------------------------
+	   -- Local Types and Constants
+	   ----------------------------------------------------------------------------
+
+	   ----------------------------------------------------------------------------
+	   -- Local Programs and Functions
+	   ----------------------------------------------------------------------------
+
+	   ----------------------------------------------------------------------------
+	   -- Local Signals
+	   ----------------------------------------------------------------------------
+
+	begin
+
+	end architecture $2;
+snippet sig
+	signal ${1:name} : ${0:std_logic};
+snippet sl
+	std_logic;
+snippet slv
+	std_logic_vector(${1:7} downto ${2:0});
+snippet inst
+	${1:name}_i : entity ${2:work}.$1
+	port map
+	(
+	   ${0}
+	);
+snippet instg
+	${1:name} : entity ${2:work}.${3:ename}
+	generic map
+	(
+	)
+	port map
+	(
+	   ${0}
+	);
+snippet forg
+	${1:label} : for ${2:i} in ${3:0} to ${4:7} generate
+	   ${0}
+	end generate $1;
+snippet func
+	function ${1:name} (${2:param}: ${3:type}) return ${4:rtype} is
+	begin
+	   ${0}
+	end $1;
+snippet comp
+	component ${1:name}
+	   port
+	   (
+	      ${0}
+	   );
+	end component;
+snippet proc
+	${1:label} : process (${2:clk}) is
+	begin
+	   if $2'event and $2 = '1' then
+	      ${0}
+	   end if;
+	end process $1;
+snippet case
+	case ${1:var} is
+	   when ${2:VAL} =>
+	      ${0}
+	   when others => null;
+	end case;
+snippet if
+	if ${1:cond} then
+	   ${0}
+	end if;
+snippet rec
+	type ${1:name} is record
+	   ${0}
+	end record $1;
+snippet ban
+	--------------------------------
+	-- ${0}
+	--------------------------------

@@ -151,7 +151,6 @@ noremap <c-l> <c-w>l
 
 " Window management
 noremap <leader>q :q<cr>
-noremap <leader>w :w<cr>
 
 " Tabs management
 "noremap <c-w> :tabclose<cr>
