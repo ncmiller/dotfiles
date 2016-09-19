@@ -197,10 +197,6 @@ let g:airline_symbols.linenr = ''
 nnoremap <leader>c :Commentary<cr>
 vnoremap <leader>c :Commentary<cr>
 
-" Clang format
-map <C-f> :pyf /usr/share/vim/addons/syntax/clang-format-3.6.py<cr>
-imap <C-f> <c-o>:pyf /usr/share/vim/addons/syntax/clang-format-3.6.py<cr>
-
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 au BufNewFile,BufFilePre,BufRead *.ino set filetype=c
 

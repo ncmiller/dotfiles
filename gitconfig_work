@@ -1,0 +1,19 @@
+[user]
+	name = Nick Miller
+	email = nick@getcruise.com
+[alias]
+	st = status
+	co = checkout
+	ls = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	dt = difftool --tool=meld --dir-diff
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+[core]
+	excludesfile = /home/nicholas/.gitignore_global
+[diff]
+	tool = meld
+[difftool]
+	prompt = false
