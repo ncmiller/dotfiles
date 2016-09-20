@@ -9,11 +9,11 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +61 src/hercules_interface/hercules_elmo/src/elmo.cpp
-badd +20 ~/src/jobnotes/notes.md
+badd +1 ~/src/jobnotes/notes.md
 badd +1 ~/cruise/HEAD^\{}-help:ros/src/hercules_interface/hercules_elmo/src/elmo.cpp
 badd +19 src/hercules_interface/hercules_elmo/src/main.cpp
 badd +82 src/hercules_interface/hercules_elmo/include/elmo.h
-badd +36 ~/.vimrc
+badd +120 ~/.vimrc
 badd +20 src/hercules_interface/lib_hercules_udp/include/hercules.h
 badd +3 ~/dotfiles/vim/ftplugin/markdown.vim
 badd +10 src/automatic_camera_lidar_calibration/src/automatic_camera_lidar_calibration.cpp
@@ -33,7 +33,7 @@ badd +123 ~/cruise/arduino/cruise_imu_can/Output.ino
 badd +244 ~/cruise/arduino/cruise_imu_can/cruise_imu_can.ino
 badd +59 ~/TI-hercules/Gecko/src/cruise_imu.c
 badd +18 ~/TI-hercules/Gecko/inc/cruise_imu.h
-badd +116 ~/TI-hercules/Lizard/src/canopen.c
+badd +133 ~/TI-hercules/Lizard/src/canopen.c
 silent! argdel *
 edit ~/cruise/arduino/cruise_imu_can/cruise_imu_can.ino
 set splitbelow splitright
@@ -41,18 +41,12 @@ wincmd _ | wincmd |
 vsplit
 wincmd _ | wincmd |
 vsplit
-wincmd _ | wincmd |
-vsplit
-3wincmd h
-wincmd w
+2wincmd h
 wincmd w
 wincmd w
 wincmd t
 set winheight=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 124 + 250) / 500)
-exe 'vert 2resize ' . ((&columns * 124 + 250) / 500)
-exe 'vert 3resize ' . ((&columns * 124 + 250) / 500)
-exe 'vert 4resize ' . ((&columns * 125 + 250) / 500)
+wincmd =
 argglobal
 setlocal fdm=marker
 setlocal fde=0
@@ -79,28 +73,11 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=3
 setlocal nofen
-let s:l = 36 - ((35 * winheight(0) + 62) / 124)
+let s:l = 16 - ((15 * winheight(0) + 62) / 124)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-36
-normal! 05|
-wincmd w
-argglobal
-edit ~/.vimrc
-setlocal fdm=marker
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=3
-setlocal nofen
-let s:l = 1 - ((0 * winheight(0) + 62) / 124)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-1
+16
 normal! 0
 wincmd w
 argglobal
@@ -113,18 +90,15 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=3
 setlocal nofen
-let s:l = 27 - ((26 * winheight(0) + 62) / 124)
+let s:l = 39 - ((38 * winheight(0) + 62) / 124)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-27
-normal! 018|
+39
+normal! 014|
 wincmd w
-3wincmd w
-exe 'vert 1resize ' . ((&columns * 124 + 250) / 500)
-exe 'vert 2resize ' . ((&columns * 124 + 250) / 500)
-exe 'vert 3resize ' . ((&columns * 124 + 250) / 500)
-exe 'vert 4resize ' . ((&columns * 125 + 250) / 500)
+2wincmd w
+wincmd =
 tabedit ~/TI-hercules/Lizard/src/canopen.c
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -133,8 +107,7 @@ vsplit
 wincmd w
 wincmd t
 set winheight=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 249 + 250) / 500)
-exe 'vert 2resize ' . ((&columns * 250 + 250) / 500)
+wincmd =
 argglobal
 setlocal fdm=marker
 setlocal fde=0
@@ -168,9 +141,8 @@ normal! zt
 122
 normal! 034|
 wincmd w
-3wincmd w
-exe 'vert 1resize ' . ((&columns * 249 + 250) / 500)
-exe 'vert 2resize ' . ((&columns * 250 + 250) / 500)
+2wincmd w
+wincmd =
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
