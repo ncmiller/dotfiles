@@ -9,10 +9,10 @@ function! InsertStatuslineColor(mode)
 endfunction
 
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
-au InsertLeave * hi statusline guibg=Black ctermfg=0 guifg=Gray ctermbg=250
+au InsertLeave * hi statusline guibg=Black ctermfg=255 guifg=Gray ctermbg=52
 
 " default the statusline to green when entering Vim
-hi statusline guibg=Black ctermfg=0 guifg=Gray ctermbg=250
+hi statusline guibg=Black ctermfg=255 guifg=Gray ctermbg=52
 
 " Formats the statusline
 set statusline=%.40F\   " full path, only last 40 characters

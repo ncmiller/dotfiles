@@ -8,7 +8,6 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
-" Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'rking/Ag.vim'
 Plugin 'nanotech/jellybeans.vim'
@@ -18,14 +17,13 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary.git'
-Plugin 'tpope/vim-dispatch'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
-Plugin 'brookhong/cscope.vim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
 
 filetype on
@@ -115,7 +113,7 @@ set background=dark
 set t_Co=256
 colorscheme jellybeans
 " colorscheme desert
-hi ColorColumn ctermbg=233
+hi ColorColumn ctermbg=0
 hi Visual term=reverse cterm=reverse guibg=Grey
 
 " Mappings
@@ -153,6 +151,8 @@ nnoremap j gj
 " Next match always in middle of window
 nnoremap n nzzzv
 nnoremap N Nzzzv
+" Reopen last file in split
+map <leader>t :vs<bar>:b#<CR>
 
 
 " Plugins
@@ -162,35 +162,6 @@ let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 if executable('ag')
    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
-
-" Airline theme
-" let g:airline_powerline_fonts = 1
-" if !exists('g:airline_symbols')
-"     let g:airline_symbols = {}
-" endif
-
-" unicode symbols
-" let g:airline_left_sep = '»'
-" let g:airline_left_sep = '▶'
-" let g:airline_right_sep = '«'
-" let g:airline_right_sep = '◀'
-" let g:airline_symbols.linenr = '␊'
-" let g:airline_symbols.linenr = '␤'
-" let g:airline_symbols.linenr = '¶'
-" let g:airline_symbols.branch = '⎇'
-" let g:airline_symbols.paste = 'ρ'
-" let g:airline_symbols.paste = 'Þ'
-" let g:airline_symbols.paste = '∥'
-" let g:airline_symbols.whitespace = 'Ξ'
-
-" airline symbols
-" let g:airline_left_sep = ''
-" let g:airline_left_alt_sep = ''
-" let g:airline_right_sep = ''
-" let g:airline_right_alt_sep = ''
-" let g:airline_symbols.branch = ''
-" let g:airline_symbols.readonly = ''
-" let g:airline_symbols.linenr = ''
 
 " commentary
 nnoremap <leader>c :Commentary<cr>

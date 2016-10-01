@@ -1,3 +1,3 @@
-source vimrc_common.vim
-source statusline.vim
+source ~/.vim/vimrc_common.vim
+source ~/.vim/statusline.vim
 
