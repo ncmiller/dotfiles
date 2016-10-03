@@ -1,0 +1,58 @@
+snippet main
+	int main(int argc, const char *argv[]) {
+		${0}
+		return 0;
+	}
+
+snippet once
+	#ifndef ${1:`toupper(vim_snippets#Filename('$1_H_', 'UNTITLED_H_'))`}
+	#define $1
+
+	${0}
+
+	#endif /* end of include guard: $1 */
+
+snippet if
+	if (${1:true}) {
+		${0}
+	}
+
+snippet ife
+	if (${1:true}) {
+		${2}
+	} else {
+		${0}
+	}
+
+snippet switch
+	switch (${1:/* variable */}) {
+		case ${2:/* variable case */}:
+			${3}
+			${4:break;}${5}
+		default:
+			${6}
+	}
+
+snippet for
+	for (${2:i} = 0; $2 < ${1:count}; $2${3:++}) {
+		${4}
+	}
+
+snippet while
+	while (${1:/* condition */}) {
+		${2}
+	}
+
+snippet tds
+	typedef struct ${2:_$1 }{
+		${3:/* data */}
+	} ${1:`vim_snippets#Filename('$1_t', 'name')`};
+
+snippet enum
+	enum ${1:name} { ${0} };
+
+snippet tde
+	typedef enum {
+		${1:/* data */}
+	} ${2:foo};
+

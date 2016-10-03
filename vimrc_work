@@ -6,8 +6,9 @@ filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'rking/Ag.vim'
 Plugin 'nanotech/jellybeans.vim'
@@ -25,6 +26,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'brookhong/cscope.vim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 
 filetype on
@@ -40,7 +42,7 @@ set showmode
 set showcmd
 set hidden
 set visualbell
-"set cursorline
+set cursorline
 set ruler
 set backspace=indent,eol,start
 " set relativenumber
@@ -79,6 +81,7 @@ set smartcase
 set incsearch
 set showmatch
 set hlsearch
+set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
@@ -96,6 +99,7 @@ set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 
 " AutoCmd
 " --------------
+source ~/.vim/vim_functions.vim
 
 " Make sure Vim returns to the same line when you reopen file
 augroup line_return
@@ -108,6 +112,8 @@ augroup END
 
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 au BufNewFile,BufFilePre,BufRead *.ino set filetype=c
+au BufRead * call FollowSymlink() | call SetProjectRoot()
+" au BufWritePre * :call StripTrailingWhitespaces()
 
 " Colors
 " --------------
@@ -121,7 +127,7 @@ hi ColorColumn ctermbg=black
 hi Visual term=reverse cterm=reverse guibg=Grey
 
 
-" Mappings
+" Mappings and Commands
 " ------------
 let mapleader=","
 let maplocalleader="\\"
@@ -161,6 +167,10 @@ nnoremap <leader>c :Commentary<cr>
 vnoremap <leader>c :Commentary<cr>
 map <C-f> :pyf /usr/share/vim/addons/syntax/clang-format-3.6.py<cr>
 imap <C-f> <c-o>:pyf /usr/share/vim/addons/syntax/clang-format-3.6.py<cr>
+nnoremap <leader>g :YcmCompleter GoTo<cr>
+imap <C-J> <Plug>snipMateNextOrTrigger
+smap <C-J> <Plug>snipMateNextOrTrigger
+command! Snips :vsp ~/.vim/after/snippets/
 
 " Plugin Settings
 " -----------------
@@ -198,4 +208,13 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+
+" airline config
+" let g:airline#extensions#tabline#enabled = 1
+
+" YouCompleteMe
+let g:ycm_extra_conf_globlist = ['~/TI-hercules/*','~/cruise/*']
+
+" snipMate
+let g:snipMate = { 'override' : 1 }
 
