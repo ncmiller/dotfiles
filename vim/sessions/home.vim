@@ -8,7 +8,7 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +132 ~/.vimrc
+badd +1 ~/.vimrc
 badd +19 ~/.bashrc
 badd +46 ~/.bash_aliases
 badd +1 ~/dotfiles/vim/ftplugin/python.vim
@@ -17,30 +17,36 @@ badd +1 ~/.gitigno
 badd +1 ~/.gitconfig
 badd +1 \$myvimrc
 badd +1 ~/.gitignore
-badd +28 cryptopals/set1/set1.py
-badd +0 cryptopals/set1/xor_decode.py
-badd +0 cryptopals/util.py
-badd +23 cryptopals/set2/set2.py
+badd +20 cryptopals/set1/set1.py
+badd +41 cryptopals/set1/xor_decode.py
+badd +50 cryptopals/util.py
+badd +6 cryptopals/set2/set2.py
+badd +1 \'__doc__\'
+badd +1 /usr/lib64/python2.7/site-packages/Crypto/Cipher/AES.py
+badd +12 nodeschool/stream-adventure/lines.js
+badd +13 nodeschool/stream-adventure/transform.js
+badd +1 nodeschool/stream-adventure/io.js
+badd +1 nodeschool/stream-adventure/meetpipe.js
+badd +1 nodeschool/stream-adventure/program.js
+badd +4 nodeschool/how-to-markdown/gfm.md
+badd +2 nodeschool/how-to-markdown/html.md
+badd +3 nodeschool/how-to-markdown/code.md
+badd +1 ~/dotfiles/vimrc_common
+badd +22 ~/.vim/statusline.vim
+badd +155 ~/.vim/vimrc_common.vim
+badd +27 ~/.tmux.conf
 argglobal
 silent! argdel *
-edit cryptopals/set1/xor_decode.py
+edit ~/.tmux.conf
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
-wincmd _ | wincmd |
-vsplit
-wincmd _ | wincmd |
-vsplit
-3wincmd h
-wincmd w
-wincmd w
+1wincmd h
 wincmd w
 wincmd t
 set winheight=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 56 + 113) / 226)
-exe 'vert 2resize ' . ((&columns * 56 + 113) / 226)
-exe 'vert 3resize ' . ((&columns * 55 + 113) / 226)
-exe 'vert 4resize ' . ((&columns * 56 + 113) / 226)
+exe 'vert 1resize ' . ((&columns * 157 + 158) / 316)
+exe 'vert 2resize ' . ((&columns * 158 + 158) / 316)
 argglobal
 setlocal fdm=marker
 setlocal fde=0
@@ -50,49 +56,15 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=3
 setlocal nofen
-let s:l = 13 - ((12 * winheight(0) + 27) / 55)
+let s:l = 27 - ((26 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-13
-normal! 013|
-wincmd w
-argglobal
-edit cryptopals/set2/set2.py
-setlocal fdm=marker
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=3
-setlocal nofen
-let s:l = 20 - ((19 * winheight(0) + 27) / 55)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-20
-normal! 022|
-wincmd w
-argglobal
-edit cryptopals/util.py
-setlocal fdm=marker
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=3
-setlocal nofen
-let s:l = 71 - ((27 * winheight(0) + 27) / 55)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-71
+27
 normal! 0
 wincmd w
 argglobal
-edit ~/.vimrc
+edit ~/.tmux.conf
 setlocal fdm=marker
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -101,18 +73,16 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=3
 setlocal nofen
-let s:l = 165 - ((49 * winheight(0) + 27) / 55)
+let s:l = 33 - ((32 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-165
+33
 normal! 0
 wincmd w
-4wincmd w
-exe 'vert 1resize ' . ((&columns * 56 + 113) / 226)
-exe 'vert 2resize ' . ((&columns * 56 + 113) / 226)
-exe 'vert 3resize ' . ((&columns * 55 + 113) / 226)
-exe 'vert 4resize ' . ((&columns * 56 + 113) / 226)
+2wincmd w
+exe 'vert 1resize ' . ((&columns * 157 + 158) / 316)
+exe 'vert 2resize ' . ((&columns * 158 + 158) / 316)
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
