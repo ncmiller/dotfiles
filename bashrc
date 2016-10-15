@@ -18,3 +18,7 @@ PS1='\[\e[32m\]\u@\h:\[\e[34m\]\W\[\e[m\]\[\e[32m\]%\[\e[0m\] '
 
 source $HOME/.bash_aliases
 source $HOME/.bash_functions
+
+unset command_not_found_handle
+
+export ROKU_DEV_TARGET="192.168.1.147"
