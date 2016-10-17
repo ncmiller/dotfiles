@@ -59,3 +59,9 @@ alias pacimpl="pacman -D --asdep"   # Mark one or more installed packages as non
 alias pacupd="sudo pacman -Sy && sudo abs"         # Update and refresh the local package and ABS databases against repositories
 alias pacinsd="sudo pacman -S --asdeps"            # Install given package(s) as dependencies
 alias pacmir="sudo pacman -Syy"                    # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
+
+alias sshwork="ssh nicholas@flaxseed.staff.robot.car"
+
+alias sshu="ssh -Y max@ubuntu"
+alias troku="telnet roku 8089"
+alias trokudbg="telnet roku 8085"

@@ -12,7 +12,7 @@
 	smudge = git-lfs smudge -- %f
 	required = true
 [core]
-	excludesfile = /home/nicholas/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [diff]
 	tool = meld
 [difftool]
