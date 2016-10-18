@@ -32,21 +32,15 @@ badd +4 nodeschool/how-to-markdown/gfm.md
 badd +2 nodeschool/how-to-markdown/html.md
 badd +3 nodeschool/how-to-markdown/code.md
 badd +1 ~/dotfiles/vimrc_common
-badd +22 ~/.vim/statusline.vim
-badd +155 ~/.vim/vimrc_common.vim
-badd +27 ~/.tmux.conf
+badd +22 ~/dotfiles/vim/statusline.vim
+badd +155 ~/dotfiles/vim/vimrc_common.vim
+badd +38 ~/.tmux.conf
 argglobal
 silent! argdel *
 edit ~/.tmux.conf
 set splitbelow splitright
-wincmd _ | wincmd |
-vsplit
-1wincmd h
-wincmd w
 wincmd t
 set winheight=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 157 + 158) / 316)
-exe 'vert 2resize ' . ((&columns * 158 + 158) / 316)
 argglobal
 setlocal fdm=marker
 setlocal fde=0
@@ -62,27 +56,6 @@ exe s:l
 normal! zt
 27
 normal! 0
-wincmd w
-argglobal
-edit ~/.tmux.conf
-setlocal fdm=marker
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=3
-setlocal nofen
-let s:l = 33 - ((32 * winheight(0) + 35) / 70)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-33
-normal! 0
-wincmd w
-2wincmd w
-exe 'vert 1resize ' . ((&columns * 157 + 158) / 316)
-exe 'vert 2resize ' . ((&columns * 158 + 158) / 316)
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

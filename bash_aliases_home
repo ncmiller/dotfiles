@@ -30,6 +30,7 @@ alias ebp='vim ~/.bash_profile'
 
 # Python
 alias pep8r='find . -name "*.py" | xargs pep8'
+alias python=python3
 
 alias roku='roku 192.168.1.147'
 alias subl='/opt/sublime_text/sublime_text'
@@ -65,3 +66,4 @@ alias sshwork="ssh nicholas@flaxseed.staff.robot.car"
 alias sshu="ssh -Y max@ubuntu"
 alias troku="telnet roku 8089"
 alias trokudbg="telnet roku 8085"
+alias tags='ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .'
