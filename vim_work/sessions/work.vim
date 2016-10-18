@@ -3,39 +3,30 @@ if &cp | set nocp | endif
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/cruise/ros
+cd ~/dotfiles
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +61 src/hercules_interface/hercules_elmo/src/elmo.cpp
-badd +1 ~/src/jobnotes/notes.md
-badd +1 ~/cruise/HEAD^\{}-help:ros/src/hercules_interface/hercules_elmo/src/elmo.cpp
-badd +19 src/hercules_interface/hercules_elmo/src/main.cpp
-badd +82 src/hercules_interface/hercules_elmo/include/elmo.h
-badd +120 ~/.vimrc
-badd +20 src/hercules_interface/lib_hercules_udp/include/hercules.h
-badd +3 ~/dotfiles/vim/ftplugin/markdown.vim
-badd +10 src/automatic_camera_lidar_calibration/src/automatic_camera_lidar_calibration.cpp
-badd +313 ~/TI-hercules/Lizard/src/elmo_can.c
-badd +1 ~/TI-hercules/.git/refs/heads/feature/can_elmo
-badd +2071 src/roscpp/include/ros/node_handle.h
-badd +98 ~/.bashrc
-badd +7 ~/src/cryptopals/set1.py
-badd +45 ~/cruise/arduino/libraries/ros_lib/ros.h
-badd +4 src/velodyne_segmentation/src/segmentation_node.cpp
-badd +77 src/roscpp/src/libros/node_handle.cpp
-badd +19 src/hercules_interface/CMakeLists.txt
-badd +1 src/hercules_interface/launch/hercules.launch
-badd +92 ~/TI-hercules/Gecko/src/gps.c
-badd +199 ~/cruise/arduino/cruise_imu_can/GPS.ino
-badd +123 ~/cruise/arduino/cruise_imu_can/Output.ino
-badd +244 ~/cruise/arduino/cruise_imu_can/cruise_imu_can.ino
-badd +59 ~/TI-hercules/Gecko/src/cruise_imu.c
-badd +18 ~/TI-hercules/Gecko/inc/cruise_imu.h
-badd +133 ~/TI-hercules/Lizard/src/canopen.c
+badd +117 ~/TI-hercules/Gecko/src/cruise_imu.c
+badd +9 ~/src/jobnotes/notes.md
+badd +265 ~/cruise/ros/src/roscpp/src/libros/statistics.cpp
+badd +1 ~/TI-hercules/shared_libs/utils/source/lwip_main.c
+badd +12 ~/src/jobnotes/cpuload.md
+badd +74 ~/cruise/ros/src/system/scripts/processes.py
+badd +60 ~/cruise/ros/src/message_stats/src/message_stats/message_stats_node.py
+badd +146 ~/cruise/ros/src/rospy/src/rospy/impl/statistics.py
+badd +1 ~/cruise/ros/src/roscpp/include/ros/statistics.h
+badd +12 ~/cruise/ros/src/message_stats/launch/main.launch
+badd +514 ~/cruise/ros/src/object_tracker/src/object_tracker.cpp
+badd +105 ~/cruise/ros/src/watchdog/src/watchdog.cpp
+badd +276 ~/cruise/ros/src/watchdog/src/watchdog_node.cpp
+badd +19 ~/cruise/ros/scripts/start_fake_ride.sh
+badd +79 ~/cruise/ros/src/launcher_db/launch/cruise.launch
+argglobal
 silent! argdel *
-edit ~/cruise/arduino/cruise_imu_can/cruise_imu_can.ino
+set stal=2
+edit ~/TI-hercules/shared_libs/utils/source/lwip_main.c
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -46,7 +37,9 @@ wincmd w
 wincmd w
 wincmd t
 set winheight=1 winwidth=1
-wincmd =
+exe 'vert 1resize ' . ((&columns * 106 + 213) / 426)
+exe 'vert 2resize ' . ((&columns * 105 + 213) / 426)
+exe 'vert 3resize ' . ((&columns * 213 + 213) / 426)
 argglobal
 setlocal fdm=marker
 setlocal fde=0
@@ -56,15 +49,16 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=3
 setlocal nofen
-let s:l = 244 - ((95 * winheight(0) + 62) / 124)
+let s:l = 1 - ((0 * winheight(0) + 57) / 115)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-244
+1
 normal! 0
+lcd ~/TI-hercules
 wincmd w
 argglobal
-edit src/hercules_interface/hercules_elmo/src/elmo.cpp
+edit ~/TI-hercules/Gecko/src/cruise_imu.c
 setlocal fdm=marker
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -73,12 +67,13 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=3
 setlocal nofen
-let s:l = 16 - ((15 * winheight(0) + 62) / 124)
+let s:l = 1 - ((0 * winheight(0) + 57) / 115)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-16
-normal! 0
+1
+normal! 09|
+lcd ~/ti/ccsv6/tools/compiler/ti-cgt-arm_15.12.1.LTS/include
 wincmd w
 argglobal
 edit ~/src/jobnotes/notes.md
@@ -90,24 +85,31 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=3
 setlocal nofen
-let s:l = 39 - ((38 * winheight(0) + 62) / 124)
+let s:l = 24 - ((21 * winheight(0) + 57) / 115)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-39
-normal! 014|
+24
+normal! 0
+lcd ~/src/jobnotes
 wincmd w
-2wincmd w
-wincmd =
-tabedit ~/TI-hercules/Lizard/src/canopen.c
+exe 'vert 1resize ' . ((&columns * 106 + 213) / 426)
+exe 'vert 2resize ' . ((&columns * 105 + 213) / 426)
+exe 'vert 3resize ' . ((&columns * 213 + 213) / 426)
+tabedit ~/cruise/ros/src/message_stats/src/message_stats/message_stats_node.py
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
-1wincmd h
+wincmd _ | wincmd |
+vsplit
+2wincmd h
+wincmd w
 wincmd w
 wincmd t
 set winheight=1 winwidth=1
-wincmd =
+exe 'vert 1resize ' . ((&columns * 142 + 213) / 426)
+exe 'vert 2resize ' . ((&columns * 141 + 213) / 426)
+exe 'vert 3resize ' . ((&columns * 141 + 213) / 426)
 argglobal
 setlocal fdm=marker
 setlocal fde=0
@@ -117,15 +119,34 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=3
 setlocal nofen
-let s:l = 133 - ((64 * winheight(0) + 62) / 124)
+let s:l = 60 - ((57 * winheight(0) + 57) / 115)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-133
+60
 normal! 0
+lcd ~/cruise
 wincmd w
 argglobal
-edit ~/TI-hercules/Lizard/src/elmo_can.c
+edit ~/src/jobnotes/cpuload.md
+setlocal fdm=expr
+setlocal fde=Foldexpr_markdown(v:lnum)
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=3
+setlocal nofen
+let s:l = 3 - ((2 * winheight(0) + 57) / 115)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+3
+normal! 09|
+lcd ~/cruise
+wincmd w
+argglobal
+edit ~/src/jobnotes/notes.md
 setlocal fdm=marker
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -134,21 +155,24 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=3
 setlocal nofen
-let s:l = 122 - ((64 * winheight(0) + 62) / 124)
+let s:l = 6 - ((5 * winheight(0) + 57) / 115)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-122
-normal! 034|
+6
+normal! 0
+lcd ~/cruise
 wincmd w
-2wincmd w
-wincmd =
-tabnext 1
+exe 'vert 1resize ' . ((&columns * 142 + 213) / 426)
+exe 'vert 2resize ' . ((&columns * 141 + 213) / 426)
+exe 'vert 3resize ' . ((&columns * 141 + 213) / 426)
+tabnext 2
+set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif
 unlet! s:wipebuf
-set winheight=1 winwidth=20 shortmess=filnxtToO
+set winheight=1 winwidth=20 shortmess=filnxtToOc
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if file_readable(s:sx)
   exe "source " . fnameescape(s:sx)
