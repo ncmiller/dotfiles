@@ -107,6 +107,12 @@ au BufReadPost *
       \ endif
 augroup END
 
+augroup FTOptions
+    au!
+    autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+    autocmd FileType liquid,markdown,text,txt setlocal tw=78 linebreak nolist
+augroup END
+
 
 " Colors
 " -----------
