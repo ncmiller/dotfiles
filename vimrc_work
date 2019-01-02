@@ -6,7 +6,7 @@ source ~/.vim/statusline.vim
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 au BufNewFile,BufFilePre,BufRead *.ino set filetype=c
 au BufRead * call FollowSymlink() | call SetProjectRoot()
-" au BufWritePre * :call StripTrailingWhitespaces()
+au BufWritePre * :call StripTrailingWhitespaces()
 
 
 " Mappings and Commands
@@ -16,17 +16,32 @@ nnoremap <leader>en :vsp $HOME/src/jobnotes/notes.md<cr>
 nnoremap vaa ggvGg_
 nnoremap <leader>c :Commentary<cr>
 vnoremap <leader>c :Commentary<cr>
-map <C-f> :pyf /usr/share/vim/addons/syntax/clang-format-3.6.py<cr>
-imap <C-f> <c-o>:pyf /usr/share/vim/addons/syntax/clang-format-3.6.py<cr>
-nnoremap <leader>g :YcmCompleter GoTo<cr>
+let g:clang_format_path = '/usr/local/bin/clang-format'
+map <C-f> :pyf /usr/share/vim/addons/syntax/clang-format-3.8.py<cr>
+imap <C-f> <c-o>:pyf /usr/share/vim/addons/syntax/clang-format-3.8.py<cr>
 imap <C-J> <Plug>snipMateNextOrTrigger
 smap <C-J> <Plug>snipMateNextOrTrigger
 command! Snips :vsp ~/.vim/after/snippets/
+nnoremap <leader>r :lvim /<c-r>=expand("<cword>")<cr>/ %<cr>:lopen<cr><cr>
+nnoremap <leader>gg :YcmCompleter GoTo<cr>
+nnoremap <leader>gf :YcmCompleter GoToDefinition<cr>
+nnoremap <leader>gl :YcmCompleter GoToDeclaration<cr>
 
 " Plugin Settings
 " -----------------
 " YouCompleteMe
-let g:ycm_extra_conf_globlist = ['~/TI-hercules/*','~/cruise/*']
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_always_populate_location_list = 1
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_semantic_triggers = {
+ \ 'c' : ['->', '.'],
+ \   'cpp,objcpp' : ['->', '.', '::'],
+ \   'roslaunch' : ['="', '$(', '/'],
+ \   'rosmsg,rossrv,rosaction' : ['re!^', '/'],
+\ }
 
 " snipMate
 let g:snipMate = { 'override' : 1 }

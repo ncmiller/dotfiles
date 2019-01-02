@@ -9,12 +9,18 @@
 	dt = difftool --tool=meld --dir-diff
 	unstage = reset HEAD --
 [filter "lfs"]
+	process = git-lfs filter-process
+	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-	required = true
 [core]
 	excludesfile = /home/nicholas/.gitignore_global
 [diff]
 	tool = meld
 [difftool]
 	prompt = false
+[push]
+	followTags = true
+[hub]
+	host = github.robot.car
+	protocol = git

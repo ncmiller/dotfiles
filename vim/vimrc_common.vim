@@ -24,7 +24,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 
 filetype on
@@ -51,7 +51,7 @@ set undofile
 set undoreload=1000
 set cpoptions+=J
 set list
-set listchars=tab:>\ ,extends:+,precedes:-
+set listchars=tab:>\ ,extends:+,precedes:-,trail:·
 set splitbelow
 set splitright
 set matchtime=3
@@ -65,7 +65,8 @@ set title
 set dictionary=/usr/share/dict/words
 set synmaxcol=800
 set backupskip=/tmp/*,/private/tmp/* " Make vim able to edit crontab
-set clipboard=exclude:.* " Disable clipboard over X to improve startup time
+" set clipboard=exclude:.* " Disable clipboard over X to improve startup time
+set clipboard=unnamedplus
 set wildmenu
 set wildmode=list:longest
 set wildignore+=.hg,.git,.svn                    " Version control
@@ -131,9 +132,10 @@ let maplocalleader="\\"
 nnoremap Q <nop>
 noremap <leader>v <c-w>v
 noremap <leader>h <c-w>s
-"nnoremap <c-b> :bprevious<cr>
-"nnoremap <c-n> :bnext<cr>
-nnoremap <leader>bd :bd<cr>
+"nnoremap <leader>bp :bprevious<cr>
+"nnoremap <leader>bn :bnext<cr>
+nnoremap <leader>b :e#<cr>
+nnoremap <leader>d :bd<cr>
 noremap <c-h> <c-w>h
 noremap <c-j> <c-w>j
 noremap <c-k> <c-w>k

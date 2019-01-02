@@ -15,7 +15,7 @@ au InsertLeave * hi statusline guibg=Black ctermfg=255 guifg=Gray ctermbg=52
 hi statusline guibg=Black ctermfg=255 guifg=Gray ctermbg=52
 
 " Formats the statusline
-set statusline=%.40F\   " full path, only last 40 characters
+set statusline=%.60F\   " full path, only last 40 characters
 " set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
 " set statusline+=%{&ff}] "file format
 set statusline+=%y      "filetype
@@ -24,7 +24,7 @@ set statusline+=%4m      "modified flag
 set statusline+=%r      "read only flag
 
 " Puts in the current git status
-set statusline+=\ %{fugitive#statusline()}
+" set statusline+=\ %{fugitive#statusline()}
 
 set statusline+=\ %=                        " align left
 set statusline+=Line:%l/%L[%p%%]            " line X of Y [percent of file]
